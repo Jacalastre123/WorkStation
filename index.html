@@ -422,11 +422,7 @@ setTimeout(function() { notif.remove()}, 10000)
             keyWords = JSON.parse(JSON.stringify(keyWordsBackup))
     
             
-       let randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
-        let randomWord2 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
-           while (randomWord1 === randomWord2) {
-            randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
-           }
+       
 if (start) {
     box.style.backgroundImage = "url('" + bg + "')"
         document.body.appendChild(popClone)
@@ -495,6 +491,13 @@ if (start) {
            neccesary.innerText = "Neccesary Words: " + keyWords[allocate()].join(", ")
         })
         neccesary.innerText = "Neccesary Words: " + keyWords[allocate()].join(", ")
+
+			let randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+        let randomWord2 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+           while (randomWord1 === randomWord2) {
+            randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+           }
+			
         switch (random) {
             case 0:
         Notif(allocate(), "We need a new popup for someone's computer for their delivery of " + randomWord1 + " and " + randomWord2)
