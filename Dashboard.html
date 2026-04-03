@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+    #box, .box {
+        position: absolute;
+        height: 250px;
+        width: 410px;
+        
+        box-shadow: 5px 5px 10px black;
+       
+        padding: 5px;
+        cursor: grab;
+        background-image: url('PopupBg/Stickynote.png');
+        background-size: cover;
+        text-align: center;
+    }
+
+    .box {
+        top: 250px;
+        left: 20px;
+    }
+
+    #box:hover, .box {
+        cursor: grabbing;
+    }
+    .bar {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.317);
+        backdrop-filter: blur(20px);
+        align-items: center;
+        margin-bottom: 10px;
+    }
+.content {
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    gap: 5px;
+     position: absolute;
+   top: 29px;
+   left: 0;
+   background-color: rgba(255, 255, 255, 0.435);
+    height: 89%;
+    backdrop-filter: blur(3px);
+}
+
+.content img {
+    border: 1px solid black;
+    height: 80%;
+    width: 45%;
+    display: flex;
+   margin-right: 10px;
+    align-items: center;
+    margin: 5px;
+}
+
+.bar button {
+    width: 4em;
+    margin: 5px;
+    margin-left: auto;
+    background-color: transparent;
+    
+    border: none;
+}
+
+.bar h5 {
+    margin: 5px;
+}
+
+.content p {
+    overflow: ellipsis;
+}
+
+#delete {
+    height: 40vh;
+    width: 20vw;
+    border: 10px solid rgb(0, 170, 14);
+    border-radius: 10px;
+   
+    
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#delete::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left:0;
+     background-image: url("Heading.png");
+     height: 40vh;
+     width: 20vw;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 0px 0px;
+}
+
+#popup {
+    position: absolute;
+}
+
+
+@keyframes squeeze {
+    0% {
+        opacity: 1.0
+    }
+
+
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.content-non-flex {
+    backdrop-filter: blur(2.1px);
+    height: 89%;
+   position: absolute;
+   top: 29px;
+   left: 0;
+   width: 100%;
+display: flex;
+justify-content: space-between;
+}
+#notifBar {
+    position: absolute;
+    height:55vh;
+    width: 20.4vw;
+    top: 42.5vh;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.435);
+    backdrop-filter: blur(50px);
+    padding: 10px;
+}
+
+.infoBar {
+    width: 30%;
+   height: 100%;
+    background-color: rgba(255, 255, 255, 0.446);
+    border-left: 1px solid black;
+    
+}
+
+.form {
+width: 70%;
+
+height: 100%;
+background-color: rgba(255, 255, 255, 0.446);
+
+}
+body {
+    font-family: Open Sans;
+    background-image: url("Background.png");
+    position: relative;
+    
+}
+
+#neccesary {
+    font-size: 0.75em;
+}
+.display {
+    height: 40%;
+}
+#store {
+    text-align: center;
+    height: 30vh;
+    width: 40vw;
+}
+
+button {
+    background-color: white;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 3px;
+
+}
+.storeBg {
+    background-color:  rgba(0,0,0,0.2);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    height: 55vh;
+}
+@keyframes popping {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.5);
+    }
+    100% {
+        opactiy: 1;
+        transform: scale(1);
+    }
+}
+.Notif {
+    background-color: rgba(255, 255, 255, 0.441);
+    padding: 5px;
+    animation: popping 1s;
+
+}
+
+.content-help {
+    height: 89%;
+   position: absolute;
+   top: 29px;
+   left: 0;
+   width: 100%;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.435);
+    backdrop-filter: blur(4px);
+    justify-content: space-between;
+    
+}
+#helper {
+    top: 100px;
+    left: 90px;
+}
+</style>
+</head>
+<body>
+    
+    
+    <template id="popup">
+    <div id="box">
+        <div class="bar">
+        <h5 id="titleBar">William</h5>
+        <button id="close">X</button>
+        </div>
+        <div class="content">
+            <img id="imag" src="EuroQuiz/Loading.gif">
+            <p id="info"></p>
+        </div>
+       
+    </div>
+    </template>
+  
+    <div class="box">
+                <div class="bar">
+            <h5>WorkStation</h5>
+            <button>X</button>
+        </div>
+        <div class="content-non-flex">
+            <div class="form">
+    <form>
+
+        
+        <h3>Make the pop Up!</h3>
+        <label for="title">Title:</label>
+
+        <input type="text" id="title"><br>
+        <label for="inform">Information:</label><br>
+        <textarea type="text" id="inform"></textarea><br>
+        
+        
+    </form>
+   
+    <button type=button onclick="submit(this)">Submit</button>
+    <h4 id="neccesary">Neccesary Words</h4>
+     </div>
+    <div class="infoBar">
+        <h4>Information</h4>
+        <h5 id="money">Money: $0</h5>
+        <button onclick="store()">Store</button>
+        <button onclick="document.getElementById('help').showModal()">Help</button>
+    </div>
+    </div>
+    </div>
+    <div id="delete">
+        <h3>Send to User</h3>
+    </div>
+    <div id="notifBar">
+        <h2>Notification bar:</h2>
+    </div>
+    <dialog id="store">
+        <h3>The Background Store</h3>
+        <div id="BGStore"></div>
+    </dialog>
+  <div class="box" id="helper"> 
+    <div class="bar" >
+        <h5>Learn about the game</h5>
+        <button onclick="document.querySelectorAll('.box')[1].remove()">X</button>
+    </div>
+    <div class="content-help">
+        <h4>Help: </h4>
+        <p>WorkStation is a game where you are the network and you make popups for companies to send on their users. The store has multiple backgrounds to buy when you earn money from sending and building popups.</p>
+    </div>
+  </div>
+    <script src="list.js"></script>
+<script>
+
+    const popup = document.getElementById("popup")
+    const notifBar = document.getElementById("notifBar")
+    let money = 0
+    let start = false
+    let randNum = 4
+    let random = Math.floor(Math.random() * randNum)
+    let bg = "PopupBg/Stickynote.png"
+    
+    let isDragging = false
+    function store() {
+        const storeLog = document.getElementById("store")
+        const BGStore = storeLog.querySelector("#BGStore")
+        const moneyID = document.getElementById("money")
+        storeLog.showModal()
+        BGStore.innerText = ""
+        Object.values(BgListo).forEach((item, index) => {
+            const newDiv = document.createElement("div")
+            newDiv.className = "storeBg"
+            BGStore.appendChild(newDiv)
+            const img = document.createElement("img")
+            img.src = item.image
+            img.className = "display"
+            newDiv.appendChild(img)
+             const titles = document.createElement("h5")
+            titles.innerText = Object.keys(BgListo)[index]
+            newDiv.appendChild(titles)
+      
+            const p = document.createElement("p")
+            p.innerText = item.paid ? "Already Paid" : "$" + item.cost
+            newDiv.appendChild(p)
+            newDiv.addEventListener('click', event => {
+                if (item.paid) {
+                    bg = item.image
+                }
+             
+                else if (item.cost <= money) {
+                    item.paid = true
+                    money -= item.cost
+                    bg = item.image
+                    moneyID.innerText = "Money: " + money
+                }
+                   storeLog.close()
+                  document.querySelectorAll(".box").forEach(item => {
+                    item.style.backgroundImage = "url('" + bg + "')"
+                  })
+            })
+          
+        })
+    }
+    function setUp() {
+        document.body.style.backgroundSize = screen.width + "px " + screen.height + "px"
+         document.querySelectorAll(".box").forEach(item => {
+ const deletes = document.getElementById("delete")
+      let offsetY = 0
+    let offsetX = 0
+    let current = null
+    item.addEventListener("pointerdown", e => {
+        
+        current = item
+        offsetX = e.clientX - item.offsetLeft
+        offsetY = e.clientY - item.offsetTop
+
+    })
+
+    document.addEventListener("pointermove", e => {
+        if (current){
+            item.style.left = (e.clientX - offsetX) + "px"
+            item.style.top = (e.clientY - offsetY) + "px"
+            
+          
+    }})
+
+    item.addEventListener("pointerup", () => {
+        current = null
+           
+        
+    })
+    })
+    }
+    setUp()
+   function allocate() {
+            return Object.keys(CompListo)[random]
+        }
+
+    function Notif(company, descript) {
+        
+        
+        const notif = document.createElement("div")
+        notif.className = "Notif"
+        notif.innerHTML = "<h4>" + company + "</h4><p>" + descript + "</p>"
+        notifBar.appendChild(notif)
+        if (document.querySelectorAll(".Notif")[1]) {
+            document.querySelectorAll(".Notif")[0].remove()
+        }
+setTimeout(function() { notif.remove()}, 10000)
+    }
+    function submit() {
+         
+        
+        const popClone = popup.content.cloneNode(true)
+        const titleBar = popClone.querySelector("#titleBar")
+        const info = popClone.querySelector("#info")
+        const box = popClone.querySelector("#box")
+        const imag = popClone.querySelector("#imag")
+        const close = popClone.querySelector("#close")
+        const title = document.getElementById("title")
+        const infoInput = document.getElementById("inform")
+        const neccesary = document.getElementById("neccesary")
+        const deletes = document.getElementById("delete")
+             let offsetY = 0
+    let offsetX = 0
+    let current = null
+     close.addEventListener("click", event => {
+        box.style.animation = "squeeze 0.5s"
+        setTimeout(() => {
+            box.remove()
+        }, 500)
+     })
+        
+        if ( !start || keyWords[allocate()].length === 0 && title.value.trim !== "") {
+            keyWords = JSON.parse(JSON.stringify(keyWordsBackup))
+    
+            
+       let randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+        let randomWord2 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+           while (randomWord1 === randomWord2) {
+            randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+           }
+if (start) {
+    box.style.backgroundImage = "url('" + bg + "')"
+        document.body.appendChild(popClone)
+
+       
+        imag.src = CompListo[allocate()].image
+        
+        titleBar.innerText = title.value 
+        
+        info.innerText = infoInput.value
+	 
+        }
+
+       
+    box.addEventListener("pointerdown", e => {
+       
+        current = box
+        offsetX = e.clientX - box.offsetLeft
+        offsetY = e.clientY - box.offsetTop
+       
+    })
+
+    document.addEventListener("pointermove", e => {
+        if (current){
+            box.style.left = (e.clientX - offsetX) + "px"
+            box.style.top = (e.clientY - offsetY) + "px"
+             const popupRect = box.getBoundingClientRect()
+            const deleteRect = deletes.getBoundingClientRect()
+             let collision = !(popupRect.right < deleteRect.left || popupRect.left > deleteRect.right || popupRect.bottom < deleteRect.top || popupRect.top > deleteRect.bottom)
+            if (collision) {
+                deletes.style.backgroundColor = "red"
+            } else {
+                deletes.style.backgroundColor = "white"
+            }
+          
+    }})
+
+    document.addEventListener("pointerup", () => {
+        current = null
+            const popupRect = box.getBoundingClientRect()
+            const deleteRect = deletes.getBoundingClientRect()
+            const moneyID = document.getElementById("money")
+             let collision = !(popupRect.right < deleteRect.left || popupRect.left > deleteRect.right || popupRect.bottom < deleteRect.top || popupRect.top > deleteRect.bottom)
+            if (collision) {
+                setTimeout(function() {
+                    box.remove()
+                }, 1000)
+                box.style.animation = "squeeze 1s"
+                money += 50
+                moneyID.innerText = "Money: $" + money
+                
+            } else {
+                
+                deletes.style.backgroundColor = "white"
+            }
+         
+    }
+        )
+     
+            start = true
+            
+            infoInput.value = ""
+             random = Math.floor(Math.random() * randNum)
+        infoInput.addEventListener("input", event => {
+           keyWords[allocate()] = keyWords[allocate()].filter(key => !infoInput.value.toLowerCase().includes(key.toLowerCase()))
+           neccesary.innerText = "Neccesary Words: " + keyWords[allocate()].join(", ")
+        })
+        neccesary.innerText = "Neccesary Words: " + keyWords[allocate()].join(", ")
+        switch (random) {
+            case 0:
+        Notif(allocate(), "We need a new popup for someone's computer for their delivery of " + randomWord1 + " and " + randomWord2)
+
+        break;
+        case 1:
+            Notif(allocate(), "We need a new popup for the conversation of " + randomWord1 + " and " + randomWord2)
+            break;
+        case 2:
+            Notif(allocate(), "We need a new popup to the audience for our new news issue. The weather is " + randomWord1 + " at day and " + randomWord2 + " at night.")
+            break;
+        case 3: 
+        Notif(allocate(), "We need your popups to tell my user about " + randomWord1 + " and " + randomWord2)
+        break;
+        }
+    }
+    
+    }
+submit()
+</script>
+</body>
+</html>
