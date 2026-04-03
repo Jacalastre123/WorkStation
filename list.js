@@ -43,7 +43,7 @@ const BgListo = {
 }
     const CompListo = {
         "Delivery Store": {
-            image: "Logo/DeliverAll.png",
+            image: "Logo/DeliverALL.png",
            items: ["Pepperoni Pizza", "Cola", "Cheese Pizza", "Chips", "Mega Pizza", "Salad"]
 
 
