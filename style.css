@@ -1,0 +1,218 @@
+#box, .box {
+        position: absolute;
+        height: 250px;
+        width: 410px;
+        
+        box-shadow: 5px 5px 10px black;
+       
+        padding: 5px;
+        cursor: grab;
+        background-image: url('PopupBg/Stickynote.png');
+        background-size: cover;
+        text-align: center;
+    }
+
+    .box {
+        top: 250px;
+        left: 20px;
+    }
+
+    #box:hover, .box {
+        cursor: grabbing;
+    }
+    .bar {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.317);
+        backdrop-filter: blur(20px);
+        align-items: center;
+        margin-bottom: 10px;
+    }
+.content {
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    gap: 5px;
+     position: absolute;
+   top: 29px;
+   left: 0;
+   background-color: rgba(255, 255, 255, 0.435);
+    height: 89%;
+    backdrop-filter: blur(3px);
+}
+
+.content img {
+    border: 1px solid black;
+    height: 80%;
+    width: 45%;
+    display: flex;
+   margin-right: 10px;
+    align-items: center;
+    margin: 5px;
+}
+
+.bar button {
+    width: 4em;
+    margin: 5px;
+    margin-left: auto;
+    background-color: transparent;
+    
+    border: none;
+}
+
+.bar h5 {
+    margin: 5px;
+}
+
+.content p {
+    overflow: ellipsis;
+}
+
+#delete {
+    height: 40vh;
+    width: 20vw;
+    border: 10px solid rgb(0, 170, 14);
+    border-radius: 10px;
+   
+    
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#delete::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left:0;
+     background-image: url("Heading.png");
+     height: 40vh;
+     width: 20vw;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 0px 0px;
+}
+
+#popup {
+    position: absolute;
+}
+
+
+@keyframes squeeze {
+    0% {
+        opacity: 1.0
+    }
+
+
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.content-non-flex {
+    backdrop-filter: blur(2.1px);
+    height: 89%;
+   position: absolute;
+   top: 29px;
+   left: 0;
+   width: 100%;
+display: flex;
+justify-content: space-between;
+}
+#notifBar {
+    position: absolute;
+    height:55vh;
+    width: 20.4vw;
+    top: 42.5vh;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.435);
+    backdrop-filter: blur(50px);
+    padding: 10px;
+}
+
+.infoBar {
+    width: 30%;
+   height: 100%;
+    background-color: rgba(255, 255, 255, 0.446);
+    border-left: 1px solid black;
+    
+}
+
+.form {
+width: 70%;
+
+height: 100%;
+background-color: rgba(255, 255, 255, 0.446);
+
+}
+body {
+    font-family: Open Sans;
+    background-image: url("Background.png");
+    position: relative;
+    
+}
+
+#neccesary {
+    font-size: 0.75em;
+}
+.display {
+    height: 40%;
+}
+#store {
+    text-align: center;
+    height: 30vh;
+    width: 40vw;
+}
+
+button {
+    background-color: white;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 3px;
+
+}
+.storeBg {
+    background-color:  rgba(0,0,0,0.2);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    height: 55vh;
+}
+@keyframes popping {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.5);
+    }
+    100% {
+        opactiy: 1;
+        transform: scale(1);
+    }
+}
+.Notif {
+    background-color: rgba(255, 255, 255, 0.441);
+    padding: 5px;
+    animation: popping 1s;
+
+}
+
+.content-help {
+    height: 89%;
+   position: absolute;
+   top: 29px;
+   left: 0;
+   width: 100%;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.435);
+    backdrop-filter: blur(4px);
+    justify-content: space-between;
+    
+}
+#helper {
+    top: 100px;
+    left: 90px;
+}
