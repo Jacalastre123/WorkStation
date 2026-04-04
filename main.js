@@ -1,12 +1,14 @@
 const popup = document.getElementById("popup")
     const notifBar = document.getElementById("notifBar")
-    let money = 0
+    
+    let money = Number(localStorage.getItem("money")) || 0
     let start = false
-    let randNum = 4
+    let randNum = Object.keys(CompListo).length
     let random = Math.floor(Math.random() * randNum)
     let bg = "PopupBg/Stickynote.png"
     
     let isDragging = false
+    
     function store() {
         const storeLog = document.getElementById("store")
         const BGStore = storeLog.querySelector("#BGStore")
@@ -38,7 +40,9 @@ const popup = document.getElementById("popup")
                     money -= item.cost
                     bg = item.image
                     moneyID.innerText = "Money: " + money
+                    localStorage.setItem("bg", JSON.stringify(BgListo))
                 }
+                localStorage.setItem("money", money)
                    storeLog.close()
                   document.querySelectorAll(".box").forEach(item => {
                     item.style.backgroundImage = "url('" + bg + "')"
@@ -48,6 +52,8 @@ const popup = document.getElementById("popup")
         })
     }
     function setUp() {
+        const moneyID = document.getElementById("money")
+        moneyID.innerText = "Money: $" + money
         document.body.style.backgroundSize = screen.width + "px " + screen.height + "px"
          document.querySelectorAll(".box").forEach(item => {
  const deletes = document.getElementById("delete")
@@ -118,7 +124,7 @@ setTimeout(function() { notif.remove()}, 10000)
      })
         
         if ( !start || keyWords[allocate()].length === 0 && title.value.trim !== "") {
-            keyWords = JSON.parse(JSON.stringify(keyWordsBackup))
+            keyWords = backUP()
     
             
        
@@ -191,10 +197,11 @@ if (start) {
         })
         neccesary.innerText = "Neccesary Words: " + keyWords[allocate()].join(", ")
 
-			let randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
-        let randomWord2 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+			let randomWord1 = keyWords[allocate()][3]
+        let randomWord2 = keyWords[allocate()][4]
+
            while (randomWord1 === randomWord2) {
-            randomWord1 = CompListo[allocate()].items[Math.floor(Math.random() * CompListo[allocate()].items.length)]
+            backUP()
            }
 			
         switch (random) {
@@ -211,6 +218,11 @@ if (start) {
         case 3: 
         Notif(allocate(), "We need your popups to tell my user about " + randomWord1 + " and " + randomWord2)
         break;
+        case 4:
+            Notif(allocate(), "We need to tell our User about this event they will have, the words neccesary for us are: " + randomWord1 + " and " + randomWord2)
+            break;
+        case 5:
+            Notif(allocate(), "We need tell our user about a game, use the words: " + randomWord1 + " and " + randomWord2)
         }
     }
     

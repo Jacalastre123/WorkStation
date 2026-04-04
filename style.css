@@ -161,7 +161,7 @@ body {
     font-size: 0.75em;
 }
 .display {
-    height: 40%;
+    height: 60%;
 }
 #store {
     text-align: center;
@@ -181,7 +181,7 @@ button {
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
-    height: 55vh;
+    height: 40vh;
 }
 @keyframes popping {
     0% {
