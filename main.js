@@ -190,6 +190,7 @@ if (start) {
             start = true
             
             infoInput.value = ""
+            title.value = ""
              random = Math.floor(Math.random() * randNum)
         infoInput.addEventListener("input", event => {
            keyWords[allocate()] = keyWords[allocate()].filter(key => !infoInput.value.toLowerCase().includes(key.toLowerCase()))
