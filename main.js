@@ -166,7 +166,7 @@ if (start) {
           
     }})
 
-    box.addEventListener("pointerup", () => {
+    document.addEventListener("pointerup", () => {
         current = null
             const popupRect = box.getBoundingClientRect()
             const deleteRect = deletes.getBoundingClientRect()
