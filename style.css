@@ -165,8 +165,8 @@ body {
 }
 #store {
     text-align: center;
-    height: 30vh;
-    width: 40vw;
+    height: 40vh;
+    width: 60vw;
 }
 
 button {
@@ -175,6 +175,9 @@ button {
     padding: 5px;
     border-radius: 3px;
 
+}
+#closer {
+    width: 99%;
 }
 .storeBg {
     background-color:  rgba(0,0,0,0.2);
