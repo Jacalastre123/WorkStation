@@ -41,8 +41,9 @@ const popup = document.getElementById("popup")
                     bg = item.image
                     moneyID.innerText = "Money: " + money
                     localStorage.setItem("bg", JSON.stringify(BgListo))
+                     localStorage.setItem("money", money)
                 }
-                localStorage.setItem("money", money)
+               
                    storeLog.close()
                   document.querySelectorAll(".box").forEach(item => {
                     item.style.backgroundImage = "url('" + bg + "')"
@@ -177,6 +178,7 @@ if (start) {
                 }, 1000)
                 box.style.animation = "squeeze 1s"
                 money += 50
+                 localStorage.setItem("money", money)
                 moneyID.innerText = "Money: $" + money
                 
             } else {
