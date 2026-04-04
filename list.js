@@ -117,7 +117,7 @@ const BgListo = JSON.parse(localStorage.getItem("bg")) || {
             "Alert", "day", "time", CompListo["Calender"].items[Math.floor(Math.random() * CompListo["Calender"].items.length)], CompListo["Calender"].items[Math.floor(Math.random() * CompListo["Calender"].items.length)] 
         ],
         "Game": [
-            "User", "game", "you", CompListo["Game"].items[Math.floor(Math.random() * CompListo["Settings"].items.length)], CompListo["Settings"].items[Math.floor(Math.random() * CompListo["Settings"].items.length)] 
+            "User", "game", "you", CompListo["Game"].items[Math.floor(Math.random() * CompListo["Game"].items.length)], CompListo["Game"].items[Math.floor(Math.random() * CompListo["Game"].items.length)] 
         ]
     }
     
