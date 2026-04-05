@@ -159,6 +159,7 @@ body {
 
 #neccesary {
     font-size: 0.75em;
+    user-select: none;
 }
 .display {
     height: 60%;

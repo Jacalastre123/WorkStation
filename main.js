@@ -62,7 +62,7 @@ const popup = document.getElementById("popup")
     let offsetX = 0
     let current = null
     item.addEventListener("pointerdown", e => {
-        
+      
         current = item
         offsetX = e.clientX - item.offsetLeft
         offsetY = e.clientY - item.offsetTop
@@ -70,6 +70,7 @@ const popup = document.getElementById("popup")
     })
 
     document.addEventListener("pointermove", e => {
+        e.preventDefault()
         if (current){
             item.style.left = (e.clientX - offsetX) + "px"
             item.style.top = (e.clientY - offsetY) + "px"
@@ -77,7 +78,8 @@ const popup = document.getElementById("popup")
           
     }})
 
-    item.addEventListener("pointerup", () => {
+    item.addEventListener("pointerup", (e) => {
+       
         current = null
            
         
@@ -144,7 +146,7 @@ if (start) {
 
        
     box.addEventListener("pointerdown", e => {
-       
+      
         current = box
         offsetX = e.clientX - box.offsetLeft
         offsetY = e.clientY - box.offsetTop
@@ -152,6 +154,7 @@ if (start) {
     })
 
     document.addEventListener("pointermove", e => {
+        e.preventDefault()
         if (current){
             box.style.left = (e.clientX - offsetX) + "px"
             box.style.top = (e.clientY - offsetY) + "px"
@@ -167,6 +170,7 @@ if (start) {
     }})
 
     document.addEventListener("pointerup", () => {
+        
         current = null
             const popupRect = box.getBoundingClientRect()
             const deleteRect = deletes.getBoundingClientRect()
@@ -194,7 +198,9 @@ if (start) {
             infoInput.value = ""
             title.value = ""
              random = Math.floor(Math.random() * randNum)
-        infoInput.addEventListener("input", event => {
+        infoInput.addEventListener("input", event =>
+ {
+                event.preventDefault()
            keyWords[allocate()] = keyWords[allocate()].filter(key => !infoInput.value.toLowerCase().includes(key.toLowerCase()))
            neccesary.innerText = "Neccesary Words: " + keyWords[allocate()].join(", ")
         })
