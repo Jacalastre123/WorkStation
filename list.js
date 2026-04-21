@@ -2,71 +2,84 @@ const BgListo = JSON.parse(localStorage.getItem("bg")) || {
     "StickyNote": {
         image: "PopupBg/Stickynote.png",
         paid: true,
-        cost: 0
+        cost: 0,
+        isCurrent: true
     },
 
     "Food": {
         image: "PopupBg/Food.png",
         paid: false,
-        cost: 250
+        cost: 250,
+        isCurrent: false
     },
     "Sky": {
         image: "PopupBg/Sky.png",
         paid: false,
-        cost: 450
+        cost: 450,
+        isCurrent: false
     },
     "Messanger": {
         image: "PopupBg/Messanger.png",
         paid: false,
-        cost: 600
+        cost: 600,
+        isCurrent: false
     },
     "News Station": {
         image: "PopupBg/News.png",
         paid: false,
-        cost: 950
+        cost: 950,
+        isCurrent: false
     },
     "Light": {
         image: "PopupBg/Light.png",
         paid: false,
-        cost: 1150
+        cost: 1150,
+        isCurrent: false
     },
 
     "Stars": {
         image: "PopupBg/Stars.png",
         paid: false,
-        cost: 1400
+        cost: 1400,
+        isCurrent: false
     },
     "Calender": {
         image: "PopupBg/CalenderBg.png",
         paid: false,
-        cost: 1700 
+        cost: 1700 ,
+        isCurrent: false
     },
 
     "Settings": {
         image: "PopupBg/Settings.png",
         paid: false,
         cost: 1900,
+        isCurrent: false
     },
     "Game": {
         image: "PopupBg/Game.png",
         paid: false,
         cost: 2250,
+        isCurrent: false
     },
     
     "Sunset": {
         image: "PopupBg/Sunset.png",
         paid: false,
-        cost: 2500
+        cost: 2500,
+        isCurrent: false
     },
     "River": {
         image: "PopupBg/River.png",
         paid: false,
-        cost: 2900
+        cost: 2900,
+        isCurrent: false
     },
     "Corner Island": {
         image: "PopupBg/Corner-Island.png",
         paid: false,
-        cost: 3500
+        cost: 3500,
+        isCurrent: false
     }
 
 }
