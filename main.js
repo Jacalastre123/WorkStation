@@ -5,7 +5,7 @@ const popup = document.getElementById("popup")
     let start = false
     let randNum = Object.keys(CompListo).length
     let random = Math.floor(Math.random() * randNum)
-    let bg = "PopupBg/Stickynote.png"
+    let bg = localStorage.getItem("bgPopup") || "PopupBg/Stickynote.png"
     
     let isDragging = false
     
@@ -33,12 +33,16 @@ const popup = document.getElementById("popup")
             newDiv.addEventListener('click', event => {
                 if (item.paid) {
                     bg = item.image
+                    localStorage.setItem("bgPopup", bg)
+
                 }
              
                 else if (item.cost <= money) {
                     item.paid = true
                     money -= item.cost
                     bg = item.image
+                 
+                    localStorage.setItem("bgPopup", bg)
                     moneyID.innerText = "Money: " + money
                     localStorage.setItem("bg", JSON.stringify(BgListo))
                      localStorage.setItem("money", money)
@@ -61,6 +65,7 @@ const popup = document.getElementById("popup")
       let offsetY = 0
     let offsetX = 0
     let current = null
+    item.style.backgroundImage = "url('" + bg + "')"
     item.addEventListener("pointerdown", e => {
       
         current = item
